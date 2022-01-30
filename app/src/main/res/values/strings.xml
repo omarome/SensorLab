@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SensorLab</string>
+    <string name="my_sensor_values">Axis X:\n %f\n Axis Y:\n %f\n Axis Z:\n %f\n</string>
+    <string name="title"> Using gyro sensor to display the three axis X,Y,Z"</string>
+</resources>
