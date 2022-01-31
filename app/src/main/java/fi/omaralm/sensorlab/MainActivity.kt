@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity(), SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
         event ?: return
         if (timestamp != 0f) {
-           val dT = (event.timestamp - timestamp) * nanoSecTwoSec
+            val dT = (event.timestamp - timestamp) * nanoSecTwoSec
             // Axis of the rotation sample, not normalized yet.
 
             var axisX: Float = event.values[0]
@@ -69,9 +69,9 @@ class MainActivity : ComponentActivity(), SensorEventListener {
             myViewModel.updateValue(
                 getString(
                     R.string.my_sensor_values,
-                        axisX,
-                        axisY,
-                        axisZ
+                    axisX,
+                    axisY,
+                    axisZ
                 )
             )
 
@@ -131,16 +131,18 @@ fun SensorDataView(myViewModel: MyViewModel) {
         Text(
             text = stringResource(R.string.title),
             Modifier
+                .background(color = Color.Yellow)
+                .align(Alignment.CenterHorizontally)
                 .padding(14.dp)
-                .background(color = Color.Yellow).align(Alignment.CenterHorizontally)
             ,fontSize = 30.sp
         )
         Text(value ?: "",
             Modifier
-                .padding(14.dp)
+                .padding( vertical = 10.dp)
                 .background(color = Color.LightGray)
+                .padding(14.dp)
                 .align(Alignment.CenterHorizontally)
-        ,fontSize = 30.sp
+            ,fontSize = 30.sp
         )
     }
 
@@ -154,5 +156,4 @@ class MyViewModel : ViewModel() {
         _value.value = value
     }
 }
-
 
